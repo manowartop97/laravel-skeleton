@@ -1,0 +1,37 @@
+{
+    "name": "manowartop/laravel-skeleton",
+    "description": "Base Skeleton for Laravel Application",
+    "keywords": [
+        "laravel",
+        "base-structure",
+        "code-generator",
+        "laravel code generator",
+        "laravel model generator",
+        "skeleton",
+        "service",
+        "repository",
+        "service and repository",
+        "base repository",
+        "base service"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Manowartop",
+            "email": "manowartop97@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "illuminate/database": "^5.0 || ^6.0 || ^7.0 || ^8.0",
+        "doctrine/dbal": "^2.5 || ^3.0",
+        "illuminate/support": "^5.0 || ^6.0|| ^7.0 || ^8.0",
+        "illuminate/filesystem": "^5.0 || ^6.0|| ^7.0 || ^8.0",
+        "manowartop/repository-service-laravel-pattern": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Manowartop\\LaravelSkeleton\\": "src/"
+        }
+    }
+}
