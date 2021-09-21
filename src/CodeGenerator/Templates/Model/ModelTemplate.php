@@ -42,6 +42,11 @@ class ModelTemplate extends ClassTemplate implements TemplateInterface
     protected $isCustomModelName = false;
 
     /**
+     * @var bool
+     */
+    protected $isIncrementing = true;
+
+    /**
      * @var string|array
      */
     protected $primaryKey;
@@ -141,6 +146,10 @@ class ModelTemplate extends ClassTemplate implements TemplateInterface
             $this->addProperty('table', $this->tableName, PropertyModel::ACCESS_PROTECTED);
         }
 
+        if (!$this->isIncrementing) {
+            $this->addProperty('incrementing', false, PropertyModel::ACCESS_PUBLIC);
+        }
+
         if ($this->primaryKey !== self::DEFAULT_PRIMARY_KEY) {
             $this
                 ->addProperty('primaryKey', $this->primaryKey, PropertyModel::ACCESS_PROTECTED)
@@ -173,6 +182,10 @@ class ModelTemplate extends ClassTemplate implements TemplateInterface
     {
         $this->primaryKey = $this->dbManager->getPrimaryKey($this->tableName);
         $this->keyType = is_array($this->primaryKey) ? 'array' : $this->modelProperties[$this->primaryKey];
+
+        if ($this->keyType !== 'integer') {
+            $this->isIncrementing = false;
+        }
     }
 
     /**

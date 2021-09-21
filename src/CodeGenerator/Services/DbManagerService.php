@@ -54,7 +54,7 @@ class DbManagerService implements DbManagerServiceInterface
         'date'         => 'Carbon',
         'time'         => 'string',
         'decimal'      => 'float',
-        'integer'      => 'int',
+        'integer'      => 'integer',
         'object'       => 'object',
         'smallint'     => 'integer',
         'string'       => 'string',
