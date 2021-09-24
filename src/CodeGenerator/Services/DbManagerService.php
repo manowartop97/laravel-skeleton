@@ -4,7 +4,6 @@ namespace Manowartop\LaravelSkeleton\CodeGenerator\Services;
 
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Schema\Table;
-use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Database\DatabaseManager;
 use Manowartop\LaravelSkeleton\CodeGenerator\Services\Contracts\DbManagerServiceInterface;
 
@@ -24,7 +23,7 @@ class DbManagerService implements DbManagerServiceInterface
     const RELATION_HAS_MANY = 'hasMany';
 
     /**
-     * @var ConnectionResolverInterface|DatabaseManager
+     * @var DatabaseManager
      */
     protected $dbManager;
 
@@ -66,9 +65,9 @@ class DbManagerService implements DbManagerServiceInterface
     ];
 
     /**
-     * @param ConnectionResolverInterface $dbManager
+     * @param DatabaseManager $dbManager
      */
-    public function __construct(ConnectionResolverInterface $dbManager)
+    public function __construct(DatabaseManager $dbManager)
     {
         $this->dbManager = $dbManager;
         $this->schemaManager = $this->dbManager->connection(config('database.default'))->getDoctrineSchemaManager();
